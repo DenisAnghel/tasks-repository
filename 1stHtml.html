@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+<title>First Project</title>
+<base href = "https://tekwill.md/tekwill-academy/"></head>
+<meta name = "authon" content = "Anghel Denis">
+
+<link rel = "stylesheet" href = "Anghel">
+</head>
+<body>
+<p>You want to study Programming? No problem, <a href = "https://tekwill.md/tekwill-academy/">here are all information.</a></p>
+<button id = "MyButton" style="background-color: aqua;">Click Me!</button>
+<p id ="output">Waiting... </p>
+<script>
+const button = document.getElementById('MyButton');
+const output = document.getElementById('output');
+function handleClick(){
+output.textContent = 'Button was clicked!'; 
+} 
+button.addEventListener('click' , handleClick);
+</script>
+</body>
