@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<style>
+  input[type="radio"]:checked {
+accent-color: yellow;
+}
+input:focus{
+    background-color: red;
+}
+input:hover{
+    background-color: pink;
+}
+input[type=url]{
+    background-color: grey ;
+}
+
+</style>
+    </head>
+    <body>
+        <div>
+            <span>Name:</span>
+            <input type="text">
+        </div>
+        <div>
+            <span>Email:</span>
+            <input type="email">
+        </div>
+        <div>
+            <span >URL:</span>
+            <input type="url" disabled >
+        </div>
+        <div>
+            <span>Password:</span>
+            <input type="password">
+        </div>
+    <h3>Gender</h3>
+    <input type="radio" name="Gender" value="Male">
+    <label for="Male">Male</label>
+    <input type="radio" name="Gender" value="Female">
+    <label for="Female">Female</label>
+    <input type="radio" name="Gender" value="Other">
+    <label for="Other">Other</label>
+    </body>
+</html>
