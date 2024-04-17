@@ -1,0 +1,32 @@
+.first{
+    border: solid;
+    height: 450px;
+    width: 100px;
+    position: absolute;
+    top: 50px;
+}
+.second{
+    border: solid;
+    height: 450px;
+    width: 100px;
+    position: absolute;
+    right: 500px;
+    top: 50px;
+}
+.third{
+    border: solid;
+    position: absolute;
+    height: 450px;
+    width: 100px;
+    right: 350px;
+    top: 50px;
+
+}
+.last{
+    border: solid;
+    position:absolute;
+    height: 450px;
+    width: 100px;
+    right: 200px;
+    top: 50px;
+}
