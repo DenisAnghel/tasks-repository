@@ -1,0 +1,100 @@
+.container1{
+    border: solid;
+    height: 300px;
+    display: grid;
+    grid-template: 
+    "block2 block2 block3"
+    "block4 block5 block6"
+    ;
+}
+.block1{
+    background-color: rgb(251, 93, 2);
+}
+.block2{
+    background-color: rgb(255, 140, 0);
+}
+.block3{
+    background-color: rgb(234, 179, 77);
+}
+.block4{
+    background-color: rgb(32, 54, 32);
+}
+.block5{
+    background-color: rgb(35, 136, 35);
+}
+.block6{
+    background-color: rgb(22, 188, 22);
+}
+
+.grid-container2{
+    border: solid;
+    height: 50vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+}
+.block21{
+    grid-column: span 2;
+    background-color: rgb(251, 93, 2);
+}
+.block22{
+    grid-row: span 2;
+    background-color: rgb(255, 140, 0);
+}
+.block25{
+    background-color: rgb(35, 136, 35);
+}
+.block24{
+    background-color: rgb(32, 54, 32);
+}
+
+.grid-container3{
+    border: solid;
+    height: 50vh;
+    display: grid;
+
+}
+.block31{
+    background-color: rgb(251, 93, 2);
+    grid-column:span 2;
+}
+.block32{
+    background-color: rgb(255, 140, 0);
+grid-column: span 3;
+}
+.block35{
+    background-color: rgb(35, 136, 35);
+    grid-column: span 3;
+}
+.block34{
+    background-color: rgb(32, 54, 32);
+}
+
+.container4{
+    border: solid;
+    height: 50vh;
+    display: grid;
+}
+.block41{
+    background-color: rgb(251, 93, 2);
+    grid-column:span 2;
+}
+.block42{
+    background-color: rgb(255, 140, 0);
+grid-column: span 2;
+}
+.block45{
+    background-color: rgb(35, 136, 35);
+    grid-column: span 3;
+}
+.block44{
+    background-color: rgb(32, 54, 32);
+    grid-column: span 1;
+}
+.block43{
+    background-color: rgb(234, 179, 77);
+    grid-column: span 4;
+}
+
+
