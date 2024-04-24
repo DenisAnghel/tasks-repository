@@ -16,15 +16,16 @@
     width: 80px;
     background-color: rgba(0, 0, 0, 0.468);
     border-radius: 15px;
-    margin-left:10px ;
-    
+    margin-left:10px ;  
 }
+
+
 .ecran{
     background-color: greenyellow;
     margin-left: 20px;
-    margin-top:30px ;
+    margin-top:20px ;
     border-radius: 20px;
-    height: 70px;
+    height: 80px;
     width: 90%;
     grid-column-start: 1;
     grid-column-end: 5;
@@ -47,3 +48,25 @@ background-color: rgb(179, 176, 176);
 #cplus{
 background-color: rgb(179, 176, 176);
 }
+
+#cimp:hover{
+    background-color: yellow;
+    }
+    #x:hover{
+        background-color: yellow;
+    }
+    #cmin:hover{
+        background-color: yellow;
+    }
+    #cpun:hover{
+        background-color: yellow;
+    }
+    #cegal:hover{
+        background-color: yellow;
+    }
+    #cplus:hover{
+    background-color: yellow;
+    }
+    .grid:hover{
+        background-color: aqua;
+    }
