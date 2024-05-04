@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Temperature converter</title>
+<style>
+    #cel{
+        font-size: 3em;
+    }
+    #celsius{
+        font-size: x-large;
+    }
+    #forenheit{
+        font-size: x-large;
+    }
+    .convertcel{
+        font-size: 50px;
+        cursor: pointer;
+        background-color: rgb(80, 132, 210);
+    }
+    .convertfar{
+        font-size: 50px;
+        cursor: pointer;
+        background-color: rgb(197, 17, 17);
+    }
+    .convertcel:hover{
+        background-color: rgb(78, 188, 240);
+    }
+    .convertfar:hover{
+        background-color: rgb(255, 0, 0);
+    }
+</style>
+<script>
+    function convertcel(){
+    let celsius = document.getElementById("celsius").value;
+    let forenheit = (celsius * 9/5) + 32;
+    alert(forenheit);
+    }
+    function convertfar(){
+    let forenheit = document.getElementById("forenheit").value;
+    let celsius = (forenheit - 32) * 5/9;
+    alert(celsius);
+    }
+</script>
+</head>
+<body>
+    <input id="celsius">
+    <span id="cel">C</span>
+    <button onclick = "convertcel()" class="convertcel">Convert</button>   
+    <br>
+    <input id="forenheit">
+    <span id="cel">F</span>
+    <button onclick = "convertfar()" class="convertfar">Convert</button>   
+
+</body>
+</html>
