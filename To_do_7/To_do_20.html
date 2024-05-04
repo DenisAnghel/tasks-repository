@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To Do 20</title>
+<style>
+    .num{
+        width: 40px;
+    }
+    #Result1{
+        display: block;
+    }
+    #Result2{
+        display: block;
+    }
+    .bt{
+        background-color: black;
+        color: aliceblue;
+        cursor: pointer;
+    }
+    .bt:hover{
+        background-color: rgb(148, 148, 148);
+    }
+    .number:hover{
+        background-color: chartreuse;
+    }
+    .num:hover{
+        background-color: chartreuse;
+    }
+</style>
+    <script>
+        function Diff(){
+        let n = document.getElementById('number_for_diff').value;
+        if(n < 13){
+        let c = 13 - n;
+        var difference = document.getElementById('difference');
+        difference.innerHTML = `${c}` 
+        }
+        else{
+            let c =((n - 13) * 2)
+            var difference = document.getElementById('difference');
+        difference.innerHTML = `${c}`
+        }
+    }
+    function Find_neg(){
+        let first_num = document.getElementById(`first_num`).value;
+        let second_num = document.getElementById(`second_num`).value;
+        if(first_num % 2 === 1){
+            var result = document.getElementById(`Result1`);
+            result.innerHTML =`First number is negativ`
+        }
+        if(second_num % 2 === 1){
+            var result = document.getElementById(`Result2`);
+            result.innerHTML =`Second number is negativ`
+        }
+    } 
+
+    function Multiply(){
+       let first_number = document.getElementById(`first_number`).value;
+       let second_number = document.getElementById(`second_number`).value;
+       let inmultire = (first_number * second_number);
+       var result = document.getElementById(`result`);
+       result.innerHTML = `The result is ${inmultire}`
+    }
+    function Divide(){
+       let first_number = document.getElementById(`first_number`).value;
+       let second_number = document.getElementById(`second_number`).value;
+       let impartire = (first_number / second_number);
+       var result = document.getElementById(`result`);
+       result.innerHTML = `The result is ${impartire}`
+    }
+    </script>
+</head>
+<body>
+    <h1>First task</h1>
+    <input class="number" id="number_for_diff">
+    <button class="bt" onclick = "Diff()">Difference</button>
+    <label id="difference"></label>  
+    
+    <h1>Second task</h1>
+    <label >1st Number</label>
+    <input id="first_num" class="num">
+    <label >2st Number</label>
+    <input id="second_num" class="num">
+    <button class="bt" onclick="Find_neg()">Find negative number</button>
+    <label id="Result1"></label>
+    <label id="Result2"></label>
+
+    <h1>Third Task</h1>
+    <label >1st Number:</label>
+    <input id="first_number" class="number">
+    <br>
+    <label >2st Number:</label>
+    <input id="second_number" class="number">
+    <br>
+    <button class="bt" onclick="Multiply()">Multiply</button>
+    <button class="bt" onclick="Divide()">Divide</button>
+    <br>
+    <label id="result"></label>
+</body>
+</html>
