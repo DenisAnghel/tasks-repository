@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        let space_ship = `Determination`;
+        let speed = 17500;
+        let distance_mars = 225000000;
+        let distance_moon = 384400;
+        let mile_per_km = 0.621;
+        let days = distance_mars/(speed * 1.609344) / 24; 
+        days = Math.round(days);
+
+        function Result(){
+            var result = document.getElementById('result');
+            result.innerHTML = `${space_ship} will take ${days} days to reach Mars`
+        }
+
+        console.log(space_ship, typeof space_ship);
+        console.log(speed, typeof speed);
+        console.log(distance_mars, typeof distance_mars);
+        console.log(distance_moon, typeof distance_moon);
+        console.log(mile_per_km, typeof mile_per_km);
+    </script>
+</head>
+<body>
+    <button onclick="Result()">How many days</button>
+    <label id="result"></label>
+</body>
+</html>
