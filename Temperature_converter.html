@@ -1,55 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Temperature converter</title>
-<style>
-    #cel{
-        font-size: 3em;
-    }
-    #celsius{
-        font-size: x-large;
-    }
-    #forenheit{
-        font-size: x-large;
-    }
-    .convertcel{
-        font-size: 50px;
-        cursor: pointer;
-        background-color: rgb(80, 132, 210);
-    }
-    .convertfar{
-        font-size: 50px;
-        cursor: pointer;
-        background-color: rgb(197, 17, 17);
-    }
-    .convertcel:hover{
-        background-color: rgb(78, 188, 240);
-    }
-    .convertfar:hover{
-        background-color: rgb(255, 0, 0);
-    }
+    <title>Temperature convertor</title>
+
+    <style>
+label{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+p{
+    font-size: 2em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    background-color: rgb(173, 162, 146);
+}
+form{
+    text-align: center;
+    font-family:Verdana, sans-serif;
+    border-radius: 10px;
+    box-shadow: 10px 10px 25px;
+    max-width: 300px;
+    margin: auto;
+    height: 380px;
+    background-color: azure;
+    padding: 20px;
+}
+#number{
+    font-size: 2em;
+    max-width: 200px;
+    text-align: center;
+    margin: 20px;
+}
+button{
+    font-size: 1.5em;
+    background-color: red;
+    color: rgb(255, 255, 255);
+    margin: 10px;
+    padding: 10px 10px;
+}
+button:hover{
+    background-color: aqua;
+    color: black;
+    cursor: pointer;
+}
+#Fahrenheit{
+    font-size: 1.5em;
+}
+h1{
+    color: hsla(241, 71%, 45%, 0.927);
+}
 </style>
-<script>
-    function convertcel(){
-    let celsius = document.getElementById("celsius").value;
-    let forenheit = (celsius * 9/5) + 32;
-    alert(forenheit);
-    }
-    function convertfar(){
-    let forenheit = document.getElementById("forenheit").value;
-    let celsius = (forenheit - 32) * 5/9;
-    alert(celsius);
-    }
-</script>
 </head>
 <body>
-    <input id="celsius">
-    <span id="cel">C</span>
-    <button onclick = "convertcel()" class="convertcel">Convert</button>   
-    <br>
-    <input id="forenheit">
-    <span id="cel">F</span>
-    <button onclick = "convertfar()" class="convertfar">Convert</button>   
+    <form>
+    <h1>Temperature convertor</h1>
+    <input type="number" id="number"><br>
+    <input type="radio" id="Fahrenheit" name="unit">
+    <label for="Fahrenheit">Celsius ➡ Fahrenheit</label><br>
 
+    <input type="radio" id="Celsius" name="unit">
+    <label for="Celsius">Fahrenheit ➡ Celsius</label><br>
+    <button id="button" type="button" onclick="Convert()">Convert</button>
+
+    <p id="result"></p>
+    </form>
+    <script>
+        let number = document.getElementById(`number`);
+        let Fahrenheit = document.getElementById(`Fahrenheit`);
+        let Celsius = document.getElementById(`Celsius`);
+        let result = document.getElementById(`result`);
+        let temp;
+
+    function Convert(){
+
+        if(Fahrenheit.checked){
+            temp = Number(number.value);
+            temp = temp * 9/5 + 32;
+            result.textContent = temp.toFixed(1) + "°F";
+        }else if(Celsius.checked){
+            temp = Number(number.value);
+            temp = (temp - 32) * 5/9;
+            result.textContent = temp.toFixed(1)  + "°C";
+        }else{
+            result.textContent = "Select a unit";
+        }
+        
+    }
+    </script>
 </body>
 </html>
