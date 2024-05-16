@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Types of Angle</title>
+    <style></style>
+</head>
+<body>
+    <label>Degree of Angle:</label>
+    <input id="degree" type="number">
+    <button onclick="Result()">Show me the result</button>
+    <p id="output"></p>
+    <script>
+        function Result() {
+            let degree = document.getElementById("degree").value;
+            let output = document.getElementById("output");
+            degree = Number(degree);
+            
+            if (degree >= 0 && degree < 90) {
+                output.textContent = "This is Acute Angle";
+            } else if (degree === 90) {
+                output.textContent = "This is Right Angle";
+            } else if (degree > 90 && degree < 180) {
+                output.textContent = "This is Obtuse Angle";
+            } else if (degree === 180) {
+                output.textContent = "This is Straight Angle";
+            } else {
+                output.textContent = "Select from 0 to 180";
+            }
+        }
+    </script>
+</body>
+</html>
