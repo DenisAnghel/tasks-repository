@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To Do 20</title>
+    <style>
+        h1{
+            text-align: center;
+            background-color: red;
+            margin: auto;
+            width: 150px;
+            color: beige;
+            border: solid black;
+        }
+        label{
+            font-style:oblique;
+            font-size: larger;
+        }
+        #bt{
+            cursor: pointer;      
+        }
+    </style>
+</head>
+<body>
+    <button onclick ="Order()" class="bt" id="bt1">Order</button>
+    <label>Order text</label>
+    <input id="string" type="text">
+<h1 id="result">Result</h1>
+<button onclick="Invert()" class="bt" id="bt2">Invert</button>
+<label>Invert number</label>
+<input id="numb" type="number">
+    <script>
+        let result = document.getElementById(`result`);
+
+        
+        function Order(){
+            let string = document.getElementById(`string`).value;
+            let sortString = (string) => {
+                return string.split("").sort().join("");
+            };
+            result.textContent = (sortString(`${string}`));
+        }
+        function Invert(){
+            let number = document.getElementById(`numb`).value;
+            let num = number.toString().split('').reverse().join('');
+            result.textContent = num; 
+           }
+    </script>
+</body>
+</html>

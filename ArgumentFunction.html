@@ -2,23 +2,13 @@
 <html lang="en">
 <head>
     <title>Typeof</title>
-    <button onclick="Type()">What type</button>
+    <button onclick="Type(5)">What type</button>
 </head>
 <body>
     <script>
-    let x
-function Type(){
-    if(typeof(x) === `string`){
-        alert(`x is a string`);
-    }else if(typeof(x) === `number`){
-        alert(`x is a number`);
-    }else if(typeof(x) === `NAN`){
-        alert(`x is a NAN`);
-    }else if(typeof(x) === `undefined`){
-        alert(`x is non defined`);
-    }else if(typeof(x) === `boolean`){
-        alert(`x is a number`);
-    }
+    
+function Type(x){
+    alert(typeof(x))
 }
     </script>
 </body>
