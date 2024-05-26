@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <title>Document</title> 
+</head> 
+<body> 
+    
+    <button onclick="showLibrary()">Show all library</button> 
+    <h3 id="show"></h3> 
+    <button onclick="ShowStatus()" id="stats">Show status</button> 
+<script> 
+    const books = [
+        {name:"Hamlet" ,author:"William Shakespear",status:true}, 
+        {name:"1984" ,author:"George Orwell",status:true}, 
+        {name:"Anna Karenina" ,author:"Lev Tolstoy",status:false}, 
+        {name:"The Divine Comedy" ,author:"Dante Alighieri",status:false}, 
+        {name:"Ktulhu" ,author:"Govard Lavkraft",status:true},             
+    ]; 
+ 
+    function showLibrary(){ 
+        let show = document.getElementById('show'); 
+        show.innerHTML = ''; 
+        for(let i = 0; i < books.length; i++){ 
+            show.innerHTML += `${books[i].name} and author ${books[i].author}!<br>`; 
+        } 
+    } 
+
+    function ShowStatus(){ 
+        let show = document.getElementById('show'); 
+        show.innerHTML = ''; 
+        for(let i = 0; i < books.length; i++){ 
+            if(books[i].status === true){ 
+                show.innerHTML += `You already read ${books[i].name} by ${books[i].author}.<br>`; 
+            } else { 
+                show.innerHTML += `You still need to read ${books[i].name} by ${books[i].author}.<br>`;  
+            } 
+        } 
+    } 
+</script> 
+</body> 
+</html>
