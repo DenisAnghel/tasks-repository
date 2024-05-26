@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To Do 23</title>
+    <style></style>
+</head>
+<body>
+    <button id="1st_bt" onclick="Frequency()">Show most frequency and array</button>
+    <h3 id="frequency"></h3>
+    <h3 id="minmax"></h3>
+
+    <input id="text" type="text">
+    <button onclick="add()" id="add">Add</button>
+    <button onclick="display()" id="display">Display</button>
+    <h3 id="show"></h3>
+    <script>
+        let frequency = document.getElementById(`frequency`);
+        let minmax = document.getElementById(`minmax`);
+    const array = [1,5,2,1,8,9,5,1];
+    function Frequency(){
+        const set = [...new Set(array)];
+        const mostFrequent = Array.from(new Set(array)).reduce((prev,curr) => array.filter(el => el ===curr).length > array.filter(el => el === prev).length ? curr : prev);
+        frequency.textContent = (`${set} and most frequent is ${mostFrequent}` );
+        minmax.textContent = (`Min number is ${Math.min.apply(Math, array)} and maximum number is ${Math.max.apply(Math, array)}`);
+    }
+    
+    let items = [];
+    let show = document.getElementById(`show`);
+    function add(){
+    let text = document.getElementById(`text`).value;
+    items.push(text);
+    }
+    function display(){
+        show.textContent = '';
+    for(let i = 0; i < items.length; i++){
+        let element = items[i];
+        let count = i + 1;
+        show.textContent += (`Element ${count}: = ${element} |\n`);
+    }
+}
+
+    </script>
+</body>
+</html>
