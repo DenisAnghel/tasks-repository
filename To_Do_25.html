@@ -2,6 +2,18 @@
 <html lang="en">
 <head>
     <title>Document</title>
+    <style>
+        .pizza{
+           display: flex; 
+        }
+       #quantity{
+        display: flex;
+       }
+       .bt{
+        width: 50px;
+        margin: 20px;
+       }
+    </style>
 </head>
 <body>
     <h3 id="result"></h3>
@@ -11,7 +23,16 @@
     <button onclick="Drive()" id="drive">Drive</button>
     <button onclick="Color()" id="color">Color</button>
     <br>
-    <button onclick="showFood()" id="food">Show My Food</button>
+    <div class="pizza">
+    <button onclick="Margerita()" id="food">Show My Food</button>
+    <img width="300px" src="https://images.ctfassets.net/nw5k25xfqsik/64VwvKFqxMWQORE10Tn8pY/200c0538099dc4d1cf62fd07ce59c2af/20220211142754-margherita-9920.jpg" alt="pizza Margerita">
+</div>
+    <div id="quantity">
+        <button onclick="minusone()" class="bt" id="minus">-</button>
+        <h3 id="howmuch">0</h3>
+        <button onclick="plusone()" class="bt" id="plus">+</button>
+    </div>
+    
     <ul id="foodList">
         <li id="first"></li>
         <li id="second"></li>
@@ -20,6 +41,8 @@
         <li id="fith"></li>
     </ul>
 <script>
+    let howmuch = document.getElementById(`howmuch`);
+    let i = 0;
     let result = document.getElementById(`result`);
     let result2 = document.getElementById(`result2`);
     let foodList = document.getElementById(`foodList`);
@@ -36,7 +59,6 @@
     }
     const food = {
         Name : "Pizza",
-        Sever : 2,
         Ingredients : [`Tomatos`,`cheese`,`sauce`], 
     }
     const car1 = new Car("Ford", "Mustang", "2024", "red");
@@ -57,12 +79,20 @@
         result.textContent = (`${car1.mark} is colored in ${car1.color}`);
         result2.textContent = (`${car2.mark} is colored in ${car2.color}`);
     }
-    function showFood(){
+    function Margerita(){
         first.textContent = (food.Name);
-        second.textContent = (food.Sever);
+        second.textContent = (i);
         third.textContent = (food.Ingredients[0]);
         fourth.textContent = (food.Ingredients[1]);
         fith.textContent = (food.Ingredients[2]);
+    }
+    function plusone(){
+        i++;
+        howmuch.textContent = i;
+    }
+    function minusone(){
+        i--;
+        howmuch.textContent = i;
     }
 </script>
 </body>
