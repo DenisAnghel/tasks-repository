@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+    <button onclick="parimeter()">Parimeter</button>
+    <button onclick="area()">Area</button>
+    <button onclick="width()">Width</button>
+    <button onclick="height()">Height</button>
+    <script>
+        result = document.getElementById('result');
+        let rectangle = {
+            rec_height: 2,
+            rec_width: 2,
+        };
+
+        function parimeter() {
+            let res = (rectangle.rec_height + rectangle.rec_width) * 2;
+            result.textContent = `(${rectangle.rec_height} + ${rectangle.rec_width}) * 2 = ${res}`;
+        }
+
+        function area() {
+            let res = (rectangle.rec_height * rectangle.rec_width);
+            result.textContent = `${rectangle.rec_height} * ${rectangle.rec_width} = ${res}`;
+        }
+
+        function width() {
+            let newWidth = prompt("Enter new width:");
+            if (newWidth !== null) {
+                newWidth = parseFloat(newWidth);
+                if (newWidth >= 0) {
+                    rectangle.rec_width = newWidth;
+                    result.textContent = `Width is now ${rectangle.rec_width}`;
+                } else {
+                    result.textContent = `The number ${newWidth} is not valid. Please enter a number greater than or equal to 0.`;
+                }
+            }
+        }
+
+        function height() {
+            let newHeight = prompt("Enter new height:");
+            if (newHeight !== null) {
+                newHeight = parseFloat(newHeight);
+                if (newHeight >= 0) {
+                    rectangle.rec_height = newHeight;
+                    result.textContent = `Height is now ${rectangle.rec_height}`;
+                } else {
+                    result.textContent = `The number ${newHeight} is not valid. Please enter a number greater than or equal to 0.`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

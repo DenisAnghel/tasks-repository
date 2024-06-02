@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="Pages">1</h1>
+  <button onclick="Read()">Read</button>
+  <button onclick="CheckPage()">Check Page</button>
+  <button onclick="checkPercentage()">Check Percentage</button>
+  <button onclick="isRead()">Is Read</button>
+  <h1 id="Procent"></h1>
+    <script>
+        pages = document.getElementById("Pages");
+        procent = document.getElementById("Procent");
+        let BOOK = {
+            Title : "Harry Potter",
+            Author : "J.K. Rowling",
+            Pages : 300,
+            CurrentPage : 1,
+        };
+        function Read(){
+            let numPage = prompt("Enter number of pages");
+            if(numPage > 300 || numPage < 0){
+                Pages.textContent = "This book has only 300 pages"
+            }
+            else if (numPage > 0 && numPage < 301){
+            BOOK.CurrentPage = (numPage);
+            Pages.textContent = "";
+            Pages.textContent = `${BOOK.CurrentPage}`;
+            }
+        }
+        function CheckPage(){
+                console.log (BOOK.CurrentPage);
+            }
+        function checkPercentage(){
+            let procentRemain = (BOOK.CurrentPage / BOOK.Pages) * 100;
+            procent.textContent = `${procentRemain} %`;
+        }
+        function isRead(){
+            if(BOOK.CurrentPage == 300){
+                procent.textContent = `You finish this book`;
+            }
+            else{
+                let remain = 300 - BOOK.CurrentPage;
+                procent.textContent = `You need to read ${remain} to finish this book`;
+            }
+        }
+    </script>
+</body>
+</html>

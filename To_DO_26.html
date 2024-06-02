@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <p id="language">Languages</p>
+    <p id="challenging">Is Challenging</p>
+    <p id="rewarding">Is Rewarding</p>
+    <p id="difficult">Difficulty</p>
+    <p id="isFun">Is Fun?</p>
+    <span>Jokes :</span>
+    <a id="jokes" href="https://stackoverflow.com/questions/234075/what-is-your-best-programmer-joke">https://stackoverflow.com/questions/234075/what-is-your-best-programmer-joke</a><br>
+    <button onclick="show()">Show the current situation</button><br>
+    <button onclick="add()">Add GO</button>
+    <button onclick="changeDiff()">Change Difficulty</button>
+    <button onclick="delet()">Delete</button>
+    <button onclick="addFun()">Add Fun</button>
+    <button onclick="showConsole()">Show languages in console</button>
+    <button onclick="showKeys()">Show all keys</button>
+    <button onclick="showValues()">Show all values</button>
+<script>
+    let language = document.getElementById('language');
+    let challenging = document.getElementById('challenging');
+    let rewarding = document.getElementById('rewarding');
+    let difficult = document.getElementById('difficult');
+    let jokes = document.getElementById('jokes'); 
+    let isFun = document.getElementById('isFun');
+
+    let programming = {
+        languages : ["Javascript" , "Python" , "Ruby"],
+        isChallenging : true,
+        isRewarding : true,
+        difficulty : 8,
+        jokes : "https://stackoverflow.com/questions/234075/what-is-your-best-programmer-joke"
+    };
+    
+    function add(){
+        programming.languages.push("GO");
+    }
+    
+    function changeDiff(){
+        programming.difficulty = 7;
+    }
+    
+    function show(){
+        language.textContent = `Languages : ${programming.languages}`;
+        challenging.textContent = `Is Challenging : ${programming.isChallenging}`;
+        rewarding.textContent = `Is Rewarding : ${programming.isRewarding}`;
+        difficult.textContent = `Difficulty : ${programming.difficulty}`;
+        jokes.textContent = `${jokes.href}`;
+        if (programming.isFun !== undefined) {
+            isFun.textContent = `Is Fun : ${programming.isFun}`;
+        }
+    }
+    
+    function delet(){
+        jokes.textContent = "";
+    }
+    
+    function addFun(){
+        programming.isFun = true;
+        show();  // Update the display to show the new key
+    }
+    function showConsole(){
+        for(let i = 0;i <= programming.languages.length; i++){
+            console.log(programming.languages[i]);
+        }
+    }
+    function showKeys(){
+        for(let i in programming){
+            console.log(`${i}`);
+        }
+    }
+    function showValues(){
+        for(let i in programming){
+            console.log(`${programming[i]}`);
+        }
+    }
+</script>
+</body>
+</html>
