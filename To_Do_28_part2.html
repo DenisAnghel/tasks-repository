@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="w_height"></h1>
+    <h1 id="w_width"></h1>
+    <h1 id="result"></h1>
+    <script>
+        let student = [
+            {
+                firstname: "steven",
+                score: 8
+            },{
+                firstname: "james",
+                score: 9
+            },{
+                firstname: "stewe",
+                score: 7
+            },{
+                firstname: "Denis",
+                score: 10
+            },
+        ];
+
+        const compareScore = (a, b) => a.score - b.score;
+        const sorted = student.sort(compareScore);
+        console.log(sorted)
+        
+
+        let result = document.getElementById('result');
+        let w_height = document.getElementById('w_height');
+        let w_width = document.getElementById('w_width');
+        let string = prompt("Give me an array");
+
+        function updateDimensions() {
+            const height = window.innerHeight;
+            const width = window.innerWidth;
+            w_height.textContent = `Height: ${height}px`;
+            w_width.textContent = `Width: ${width}px`;
+        }
+
+        window.addEventListener('resize', updateDimensions);
+        updateDimensions();
+        first_letters();
+
+        function first_letters(){
+            let words = string.split(' ');
+            let firstLetters = words.map(word => word.charAt(0)).join(', ');
+            result.textContent = `First letters: ${firstLetters}`;
+        }
+    </script>
+</body>
+</html>

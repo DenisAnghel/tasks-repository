@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="results"></h1>
+    <button onclick="Score()">Results</button>
+    <button onclick="Sorting()">Sorting</button>
+    <script>
+        let results = document.getElementById('results');
+        
+        function Students(name, score) {
+            this.name = name;
+            this.score = score;
+            this.averageScore = function() {
+                let sum = this.score.reduce((a, b) => a + b, 0);
+                return sum / this.score.length;
+            }
+        }
+
+        const student1 = new Students("Johny", [7,8,8,9]);
+        const student2 = new Students("James", [8,8,9,9]);
+        const student3 = new Students("Henry", [5,10,8,9]);
+        const student4 = new Students("Nilson", [6,7,6,5]);
+        const student5 = new Students("William", [9,9,9,9]);
+        const student6 = new Students("Darek", [10,10,10,10]);
+
+        const students = [student1, student2, student3, student4, student5, student6];
+
+        function Score() {
+            let resultText = '';
+            students.forEach(student => {
+                student.averageScoreValue = student.averageScore();
+                resultText += `${student.name}: ${student.averageScoreValue.toFixed(2)}<br>`;
+            });
+            results.innerHTML = resultText;
+        }
+
+        function Sorting(){
+            let minimum = prompt("Enter minimum value");
+            let min = Number(minimum);
+
+            let resultText = '';
+            students.forEach(student => {
+                student.averageScoreValue = student.averageScore();
+            });
+
+            let filteredStudents = students.filter(student => student.averageScoreValue >= min);
+
+            filteredStudents.sort((a, b) => b.averageScoreValue - a.averageScoreValue);
+
+            filteredStudents.forEach(student => {
+                resultText += `${student.name}: ${student.averageScoreValue.toFixed(2)}<br>`;
+            });
+
+            results.innerHTML = resultText;
+        }
+    </script>
+</body>
+</html>
