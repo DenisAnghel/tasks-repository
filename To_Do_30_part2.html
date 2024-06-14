@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        #bt{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="bt">
+    <button onclick="Introduce1()" id="intro">Introduce 1 person</button>
+    <button onclick="Introduce2()" id="intro2">Introduce 2 person</button><br>
+    <button onclick="SetEmail1()" id="intro">Set email to person 1</button>
+    <button onclick="SetEmail2()" id="intro2">Set email to person 2</button><br>
+    <button onclick="GetMail1()" id="intro">Get 1 person mail</button>
+    <button onclick="GetMail2()" id="intro2">Get 2 person mail</button>
+</div>
+    <h1 id="name"></h1>
+    <script>
+        let name = document.getElementById('name');
+        let person1 = {
+            firstName: "Giorno",
+            lastName: "Giovanna",
+            age: 16,
+            email: "nothing",
+            introduce: function(){name.textContent =`My name is ${this.firstName} ${this.lastName} and I am ${this.age} years old`},
+            setEmail: function(){this.email = prompt("Set email to Giorno")},
+            getMail: function(){name.textContent = `${this.email}`},
+        }
+
+        let person2 = {
+            firstName: "Michal",
+            lastName: "Jordan",
+            age: 32,
+            email: "nothing",
+            introduce: function(){name.textContent =`My name is ${this.firstName} ${this.lastName} and I am ${this.age} years old`},
+            setEmail: function(){this.email = prompt("Set email to Michal")},
+            getMail: function(){name.textContent = `${this.email}`},
+        }
+
+        function Introduce1(){
+            person1.introduce();
+        }
+        function Introduce2(){
+            person2.introduce();
+        }
+        function SetEmail1(){
+            person1.setEmail();
+        }
+        function SetEmail2(){
+            person2.setEmail();
+        }
+        function GetMail1(){
+            person1.getMail();
+        }
+        function GetMail2(){
+            person2.getMail();
+        }
+    </script>
+
+</body>
+</html>

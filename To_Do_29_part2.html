@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+
+    <style>
+        label {
+            margin-bottom: 10px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+
+        #rom {
+            accent-color: red;
+        }
+
+        #rom_rus {
+            accent-color: orange;
+        }
+
+        #rom_rus_eng {
+            accent-color: rgb(17, 225, 17);
+        }
+
+        #submit:hover {
+            cursor: pointer;
+        }
+
+        input::placeholder {
+            color: red;
+            font-size: large;
+        }
+
+        #about {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm" action="/action_page.php" method="post">
+        <div class="input-group">
+            <label for="name">User Name:</label>
+            <input id="name" type="text" minlength="7" placeholder="ex:Denis(min 7 elements)" required>
+            <label for="pass">Password:</label>
+            <input required id="pass" type="password" minlength="9" placeholder="ex:adh#566*jbda(min 9 elements)">
+            <label for="years">Years:</label>
+            <input id="years" min="18" type="number" placeholder="ex:20(min 18 years)">
+            <label for="date">Date:</label>
+            <input type="date" id="date">
+            <label for="email">Email:</label>
+            <input required id="email" type="email" placeholder="ex:vip.anghel@list.ru">
+            <label for="Address">Address:</label>
+            <input id="Address" type="text" placeholder="ex:Nicolae Sulac 4(Optional) ">
+            <label for="about">About:</label>
+            <input type="text" id="about" placeholder="Something about you(Optional)">
+        </div>
+        <p>Gender:</p>
+        <input type="radio" name="Gender" id="male" value="male">
+        <label for="male">Male</label><br>
+        <input required type="radio" name="Gender" id="female" value="female">
+        <label for="female">Female</label>
+
+        <p>How many language do you know:</p>
+        <input required type="radio" name="language" id="rom" value="rom">
+        <label for="rom">Just Romanian</label><br>
+        <input type="radio" name="language" id="rom_rus" value="rom_rus">
+        <label for="rom_rus">Romanian and Russian</label><br>
+        <input type="radio" name="language" id="rom_rus_eng" value="rom_rus_eng">
+        <label for="rom_rus">Romanian, Russian and English</label>
+        <br>
+        <input id="submit" style="color: rgb(255, 255, 255); background-color: rgb(255, 0, 0); font-size: larger;" type="submit">
+    </form>
+
+    <script>
+        // Set the max date to today's date
+        document.addEventListener('DOMContentLoaded', function() {
+            let today = new Date();
+            let day = String(today.getDate()).padStart(2, '0');
+            let month = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+            let year = today.getFullYear();
+            let todayString = year + '-' + month + '-' + day;
+            document.getElementById('date').setAttribute('max', todayString);
+        });
+
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            let inputs = document.querySelectorAll('input[required]');
+            let letterOnlyRegex = /^[A-Za-z]+$/;
+            let isValid = true;
+            let errorMessage = '';
+
+            inputs.forEach(function(input) {
+                if (input.type === 'text' || input.type === 'email' || input.type === 'password') {
+                    if (!letterOnlyRegex.test(input.value)) {
+                        isValid = false;
+                        errorMessage += `The field ${input.previousElementSibling.textContent} should contain only letters.\n`;
+                    }
+                }
+            });
+
+            if (!isValid) {
+                event.preventDefault();
+                alert(errorMessage);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        button {
+            font-size: xx-large;
+            border-radius: 25px;
+            cursor: pointer;
+            padding: 10px 20px;
+        }
+
+        #accelerate {
+            background-color: rgb(74, 22, 74);
+            color: aliceblue;
+        }
+
+        #reset {
+            background-color: red;
+            color: azure;
+        }
+
+        #brake {
+            background-color: rgb(67, 67, 238);
+            color: aliceblue;
+        }
+
+        #speed {
+            font-size: 50px;
+            justify-content: space-between;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #car1 {
+            color: rgb(90, 150, 0);
+        }
+
+        #car2 {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button id="accelerate" onclick="accelerate()">Accelerate </button>
+        <button id="brake" onclick="brake()">Brake</button>
+        <button id="reset" onclick="currentSpeed()">Reset</button>
+    </div>
+
+    <div id="speed">
+        <h1 id="car1">Car1: 100</h1>
+        <h1 id="car2">Car2: 100</h1>
+    </div>
+    <script>
+        let car1 = document.getElementById('car1');
+        let car2 = document.getElementById('car2');
+
+        function Car(make, model, year, speed) {
+            this.make = make;
+            this.model = model;
+            this.year = year;
+            this.speed = speed;
+        }
+
+        let Car1 = new Car("Nissan", "Gtr", 2022, 100);
+        let Car2 = new Car("Lamborghini", "Huracan", 2014, 100);
+
+        function updateSpeedDisplay() {
+            car1.textContent = `Car1: ${Car1.speed}`;
+            car2.textContent = `Car2: ${Car2.speed}`;
+        }
+
+        function accelerate() {
+            Car1.speed += 10;
+            Car2.speed += 10;
+            updateSpeedDisplay();
+        }
+
+        function brake() {
+            Car1.speed -= 7;
+            Car2.speed -= 7;
+            updateSpeedDisplay();
+        }
+
+        function currentSpeed() {
+            Car1.speed = 100;
+            Car2.speed = 100;
+            updateSpeedDisplay();
+        }
+        updateSpeedDisplay();
+    </script>
+</body>
+</html>
