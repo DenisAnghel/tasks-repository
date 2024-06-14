@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="Size()">Show the size of map</button>
+    <button onclick="Get_John_Doe()">Get John Doe</button>
+    <button onclick="Has_Bob_Johnson()">Has Bob Johnson?</button>
+    <button onclick="Delete_Jane()">Delete Jane</button>
+    <button onclick="Clear()">Clear All</button><br>
+    <button onclick="Size_of_skills()">Size of Skills</button>
+    <button onclick="Check_Js()">Check JavaScript</button>
+    <button onclick="Delete_CSS()">Delete CSS</button>
+    <button onclick="Show_all()">Show all elements</button>
+    <h1 id="result"></h1>
+    <script>
+        let result = document.getElementById("result");
+
+        const skills = new Set();
+        skills.add("JavaScript");
+        skills.add("HTML");
+        skills.add("CSS");
+        skills.add("JavaScript");
+
+        const employees = new Map();
+
+        employees.set("John Doe", "Manager");
+        employees.set("Jane Smith" , "Developer");
+        employees.set("Bob Johnson" , "Developer");
+        function Size(){
+            result.textContent = `In employees sunt ${employees.size} key-pairs`;
+        }
+        function Get_John_Doe(){
+            result.textContent = `${employees.get("John Doe")}`;
+        }
+        function Has_Bob_Johnson(){
+            result.textContent = `${employees.has("Bob Johnson")}`;
+        }
+        function Delete_Jane(){
+            employees.delete("Jane Smith");
+        }
+        function Clear(){
+            employees.clear();
+        }
+        function Size_of_skills(){
+            result.textContent =`${skills.size}`;
+        }
+        function Check_Js(){
+            result.textContent = `${skills.has("JavaScript")}`;
+        }
+        function Delete_CSS(){
+            skills.delete("CSS");
+        }
+        function Show_all(){
+            skills.forEach(function(skill){
+                console.log(skill);
+            })
+        }
+    </script>
+</body>
+</html>
