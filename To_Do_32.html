@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <button onclick = "Divide_result()">For Divide Number</button>
+    <button onclick="Find_Element()">Element from array</button>
+    <button onclick="Json_property()">Find JSON property</button>
+ <h1 id="result"></h1>
+    <script>
+        let result = document.getElementById('result');
+
+        function Divide_result() {
+            let validInput = false;
+            let first, second;
+
+            while (!validInput) {
+                first = prompt("Enter first number for divide");
+                second = prompt("Enter second number for divide");
+
+                first = Number(first);
+                second = Number(second);
+                if (isNaN(first) || isNaN(second)) {
+                    alert("Error: You need to introduce 2 valid numbers");
+                } else if (second === 0) {
+                    alert("Error: You can't divide by 0");
+                } else {
+                    validInput = true;
+                }
+            }
+
+            let divide = first / second;
+            result.textContent = `Result of dividing these two numbers is ${divide}`;
+        }
+        function Find_Element(){
+            let valid = false;
+            let array = [1,5,8,9,6,5,8]
+            while(!valid){
+            let index = prompt("Enter index of number from array");
+            index = Number(index);
+                if(isNaN(index)){
+                    alert("Error: You need to introduce a number");
+                }else if(index >= array.length){
+                    alert("Error: Too big index");
+                }else if(index < 0){
+                    alert("Error: Index need to be more than 0");
+                }else{
+                    result.textContent = `At index ${index},the value is ${array.indexOf(index)}`;
+                    valid = true;
+                }
+            }
+        }
+        function Json_property() {
+            const json_String = {
+                "name": "Yujiro",
+                "surname": "Hanma",
+                "status": "Ogre"
+            };
+
+            let propertiesToCheck = [];
+            let moreProperties = true;
+
+            while (moreProperties) {
+                let property = prompt("Enter a property name to check (or leave blank to finish):");
+                if (property) {
+                    propertiesToCheck.push(property);
+                } else {
+                    moreProperties = false;
+                }
+            }
+
+            propertiesToCheck.forEach(property => {
+                if (!(property in json_String)) {
+                    alert(`Error: Property ${property} is missing`);
+                } else {
+                    alert(`Property ${property} is present with value: ${json_String[property]}`);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
